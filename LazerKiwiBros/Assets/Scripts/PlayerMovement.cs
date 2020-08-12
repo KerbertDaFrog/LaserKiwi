@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Camera mainCamera;
 
+    public GunController theGun;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
 
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
+
+        if (Input.GetMouseButtonDown(0))
+            theGun.isFiring = true;
+
+        if (Input.GetMouseButtonUp(0))
+            theGun.isFiring = false;
     }
 
     void FixedUpdate()
