@@ -45,6 +45,6 @@ public class PlayerHealthManager : MonoBehaviour
     {
         currentHealth -= damageAmount;
         flashCounter = flashLength;
-        rend.material.SetColor("_Color", Color.white);
+        rend.material.SetColor("_Color", Color.red);
     }
 }
