@@ -6,7 +6,7 @@ public class PlayerHealthManager : MonoBehaviour
 {
 
     public int startingHealth;
-    private int currentHealth;
+    public int currentHealth;
 
     public float flashLength;
     private float flashCounter;
@@ -14,27 +14,33 @@ public class PlayerHealthManager : MonoBehaviour
     private Renderer rend;
     private Color storedColor;
 
+    PlayerUI playerUI;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerUI = GetComponent<PlayerUI>();
+
         currentHealth = startingHealth;
 
         rend = GetComponent<Renderer>();
         storedColor = rend.material.GetColor("_Color");
+
+        SetStats();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentHealth <=0)
+        if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
         }
 
-        if(flashCounter > 0)
+        if (flashCounter > 0)
         {
             flashCounter -= Time.deltaTime;
-            if(flashCounter <= 0)
+            if (flashCounter <= 0)
             {
                 rend.material.SetColor("_Color", storedColor);
             }
@@ -44,7 +50,13 @@ public class PlayerHealthManager : MonoBehaviour
     public void HurtPlayer(int damageAmount)
     {
         currentHealth -= damageAmount;
+        playerUI.healthAmount.text = currentHealth.ToString();
         flashCounter = flashLength;
         rend.material.SetColor("_Color", Color.red);
+    }
+
+    void SetStats()
+    {
+        playerUI.healthAmount.text = currentHealth.ToString();
     }
 }
