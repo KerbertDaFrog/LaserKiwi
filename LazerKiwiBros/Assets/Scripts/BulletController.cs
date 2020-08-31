@@ -33,7 +33,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damageToGive);
+            other.gameObject.GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
             Destroy(gameObject);
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealthManager : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
 
     public int health;
@@ -23,6 +23,7 @@ public class EnemyHealthManager : MonoBehaviour
         }
     }
 
+    //Take away Enemy Health
     public void HurtEnemy(int damage)
     {
         currentHealth -= damage;
