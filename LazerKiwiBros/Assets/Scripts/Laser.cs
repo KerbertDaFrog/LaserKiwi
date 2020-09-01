@@ -11,7 +11,7 @@ public class Laser : MonoBehaviour
     public LineRenderer line;
    
     public bool fireLaser = false;
-    
+
     public GameObject Player;
     
     public GameObject beamPoint;
@@ -23,6 +23,10 @@ public class Laser : MonoBehaviour
     private Vector3 endPoint;
 
     private Vector3 mousePos;
+
+    private Vector3 rayHitPos;
+    private float rayHitDistance;
+
 
     void Start()
     {
@@ -38,8 +42,10 @@ public class Laser : MonoBehaviour
         {
             //Draw Laser
             line.enabled = true;
-            
+
             //Call Raycast Function
+
+           
             LaserCol();
             
             Debug.Log("Firing Laser/Gun");
@@ -47,7 +53,15 @@ public class Laser : MonoBehaviour
             //Laser Position
             origin = Player.transform.position + Player.transform.forward * 0.5f * Player.transform.lossyScale.z;
 
-            endPoint = origin + Player.transform.forward * 9f;
+            if(rayHitDistance < range)
+            {
+                endPoint = rayHitPos;
+            }
+            else
+            {
+                endPoint = origin + Player.transform.forward * range;
+            }
+            
 
             line.SetPosition(0, origin);
 
@@ -78,7 +92,7 @@ public class Laser : MonoBehaviour
             {
                 if (hit.collider.gameObject.GetComponent<EnemyHealth>())
                 {
-                    endPoint = hit.point;
+                    //endPoint = hit.point;
                     hit.collider.gameObject.GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
                     Debug.Log(hit.transform.name);
                 }
@@ -86,8 +100,12 @@ public class Laser : MonoBehaviour
 
             if (hit.collider)
             {
-                line.SetPosition(1, hit.point);
+                //endPoint = hit.point;
+                Debug.Log(hit.collider.gameObject.name);
             }
+
+            rayHitDistance = hit.distance;
+            rayHitPos = hit.point;
         }
     }
    
