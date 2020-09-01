@@ -8,7 +8,7 @@ public class Laser : MonoBehaviour
    
     public float damage = 50f;
     
-    public LineRenderer lr;
+    public LineRenderer line;
    
     public bool fireLaser = false;
     
@@ -18,51 +18,75 @@ public class Laser : MonoBehaviour
     
     public int damageToGive;
 
+    private Vector3 origin;
+
+    private Vector3 endPoint;
+
+    private Vector3 mousePos;
+
     void Start()
     {
-        lr = gameObject.GetComponent<LineRenderer>();
-        lr.enabled = false;
+        line = gameObject.GetComponent<LineRenderer>();
+        line.startWidth = 0.2f;
+        line.endWidth = 0.2f;
+        line.enabled = false;
     }
     void Update()
-    {
-        
-        
+    {       
         //Button Input to Shoot Laser
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            lr.enabled = true;
-            FireLaser();
+            //Draw Laser
+            line.enabled = true;
+            
+            //Call Raycast Function
+            LaserCol();
+            
             Debug.Log("Firing Laser/Gun");
-            lr.SetPosition()
+
+            //Laser Position
+            origin = Player.transform.position + Player.transform.forward * 0.5f * Player.transform.lossyScale.z;
+
+            endPoint = origin + Player.transform.forward * 9f;
+
+            line.SetPosition(0, origin);
+
+            line.SetPosition(1, endPoint);
         }
         
 
         if (Input.GetMouseButtonUp(0))
         {
-            lr.enabled = false;
+            line.enabled = false;
         }
     }
 
 
-    void FireLaser()
+    void LaserCol()
     {
         var ray = new Ray(transform.position, transform.forward);
         var beamPoint = (transform.position + Vector3.up);
-        var direction = (transform.position + Vector3.up) - (transform.position + Vector3.up);
+        Vector3 dir = endPoint - origin;
+        dir.Normalize();
 
         RaycastHit hit;
 
-        if (Physics.Raycast(beamPoint, direction, out hit, range))
+        if (Physics.Raycast(origin, dir, out hit, range))
         {
+            //Damage Enemy Health
             if (hit.collider.gameObject.tag == "Enemy")
             {
-                hit.collider.gameObject.GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
-                Destroy(gameObject);
-                Debug.Log(hit.transform.name);
+                if (hit.collider.gameObject.GetComponent<EnemyHealth>())
+                {
+                    endPoint = hit.point;
+                    hit.collider.gameObject.GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
+                    Debug.Log(hit.transform.name);
+                }
             }
-            else
-            {
 
+            if (hit.collider)
+            {
+                line.SetPosition(1, hit.point);
             }
         }
     }
