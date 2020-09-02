@@ -31,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5851674362635941356}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -234.406, z: 0}
 --- !u!33 &283467513544863695
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5851674362635941356}
   - component: {fileID: 583913501770449601}
+  - component: {fileID: 3630263826348655833}
   m_Layer: 0
   m_Name: health
   m_TagString: Untagged
@@ -123,3 +124,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48416805, y: 1.2008247, z: 1.1533127}
   m_Center: {x: 0.0343194, y: 0.102890015, z: 0.012844086}
+--- !u!111 &3630263826348655833
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452906582225586175}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b24d7d05bfd5e4349951804309d6b186, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b24d7d05bfd5e4349951804309d6b186, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
