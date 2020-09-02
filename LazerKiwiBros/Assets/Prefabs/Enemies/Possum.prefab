@@ -712,9 +712,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8050751820049667614}
   - component: {fileID: 119865577158503857}
+  - component: {fileID: 4944120106451847459}
+  - component: {fileID: 5812419417421177416}
   m_Layer: 0
-  m_Name: possum
-  m_TagString: Untagged
+  m_Name: Possum
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -762,6 +764,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.8977871, y: 3.3572047, z: 1.19694}
   m_Center: {x: -0.014005065, y: 1.5191191, z: -0.09847}
+--- !u!114 &4944120106451847459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476561062215099405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfb809d1dcab3d4288ee916cd7cf539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &5812419417421177416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476561062215099405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e1d0772f777ad4aaa96ed53159b6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
+  thePlayer: {fileID: 871870275354362077, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+    type: 3}
 --- !u!1 &6609541348241671675
 GameObject:
   m_ObjectHideFlags: 0
