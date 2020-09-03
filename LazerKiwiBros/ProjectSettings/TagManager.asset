@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Speed
   - Health
+  - Ammo
   layers:
   - Default
   - TransparentFX

@@ -143,9 +143,9 @@ GameObject:
   - component: {fileID: 7902754126277919576}
   - component: {fileID: 871870275354362066}
   - component: {fileID: 871870275354362067}
-  - component: {fileID: 871870275354362079}
-  - component: {fileID: 871870275354362076}
   - component: {fileID: 871870275354362077}
+  - component: {fileID: 3980156874685741808}
+  - component: {fileID: -7492478087902080014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -237,34 +237,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &871870275354362079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103828663310913833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7302e91f6be418e4da28f0dddb43ffa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthAmount: {fileID: 0}
---- !u!114 &871870275354362076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103828663310913833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 091ee5cc5a8aaee45b836736aa912c61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 100
-  currentHealth: 0
-  flashLength: 0
 --- !u!114 &871870275354362077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +251,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   theGun: {fileID: 1702186267092572878}
+--- !u!114 &3980156874685741808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103828663310913833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091ee5cc5a8aaee45b836736aa912c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  flashLength: 0
+--- !u!114 &-7492478087902080014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103828663310913833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7302e91f6be418e4da28f0dddb43ffa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAmount: {fileID: 0}
 --- !u!1 &2216306889419822956
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,11 +663,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7887587701092634552}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 8d6ea3fb37507d74c9ada9593f315438,
-        type: 3}
-      propertyPath: m_Name
-      value: kiwileg (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8d6ea3fb37507d74c9ada9593f315438,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -738,6 +733,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8d6ea3fb37507d74c9ada9593f315438,
+        type: 3}
+      propertyPath: m_Name
+      value: kiwileg (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 79621727649304875, guid: 8d6ea3fb37507d74c9ada9593f315438,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -758,11 +758,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7887587701092634552}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 8d6ea3fb37507d74c9ada9593f315438,
-        type: 3}
-      propertyPath: m_Name
-      value: kiwileg
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8d6ea3fb37507d74c9ada9593f315438,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -832,6 +827,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8d6ea3fb37507d74c9ada9593f315438,
+        type: 3}
+      propertyPath: m_Name
+      value: kiwileg
       objectReference: {fileID: 0}
     - target: {fileID: 79621727649304875, guid: 8d6ea3fb37507d74c9ada9593f315438,
         type: 3}

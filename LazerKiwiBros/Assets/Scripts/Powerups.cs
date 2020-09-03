@@ -9,11 +9,15 @@ public class Powerups : MonoBehaviour
 
     public int HealthAdd = 25;
 
-    public int ArmorAdd = 25;
+    public int ArmorAdd = 25; 
 
-    private bool immune;
+    public int AmmoAdd = 50;
 
     public int multiplier = 10;
+
+    public float timer = 30f;
+
+    public bool powerupActive = false;
 
     void OnTriggerEnter(Collider other)
     {
@@ -32,7 +36,7 @@ public class Powerups : MonoBehaviour
         
         if(gameObject.tag == "Speed")
         {
-            player.GetComponent<PlayerMovement>().moveSpeed *= multiplier;
+            StartCoroutine("SpeedTime");
         }
 
         if(gameObject.tag == "Health")
@@ -40,6 +44,35 @@ public class Powerups : MonoBehaviour
             player.GetComponent<PlayerHealthManager>().currentHealth += HealthAdd;
         }
 
+        if(gameObject.tag == "Armor")
+        {
+            player.GetComponent<PlayerHealthManager>().currentArmor += ArmorAdd;
+        }
+
+        if (gameObject.tag == "Invincibility")
+        {
+            player.GetComponent<PlayerHealthManager>().enabled = false;
+        }
+
+        if (gameObject.tag == "Ammo")
+        {
+            player.GetComponent<GunController>().bulletAmount += AmmoAdd;
+        }
+
         Destroy(gameObject);
+    }
+
+    void Speed(Collider player)
+    {
+        player.GetComponent<PlayerMovement>().moveSpeed *= multiplier;
+    }
+
+    IEnumerator SpeedTime (float duration)
+    {
+        Debug.Log("Power Up Activated");
+        powerupActive = true;
+        yield return new WaitForSeconds(duration);
+        powerupActive = false;
+        Debug.Log("Power Up Deactivated");
     }
 }

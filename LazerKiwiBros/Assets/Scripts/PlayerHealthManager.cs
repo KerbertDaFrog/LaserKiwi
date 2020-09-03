@@ -8,6 +8,9 @@ public class PlayerHealthManager : MonoBehaviour
     public int startingHealth;
     public int currentHealth;
 
+    public int startingArmor;
+    public int currentArmor;
+
     public float flashLength;
     private float flashCounter;
 
@@ -22,6 +25,8 @@ public class PlayerHealthManager : MonoBehaviour
         playerUI = GetComponent<PlayerUI>();
 
         currentHealth = startingHealth;
+
+        currentArmor = startingArmor;
 
         rend = GetComponent<Renderer>();
         storedColor = rend.material.GetColor("_Color");
@@ -51,6 +56,7 @@ public class PlayerHealthManager : MonoBehaviour
     {
         currentHealth -= damageAmount;
         playerUI.healthAmount.text = currentHealth.ToString();
+        playerUI.armorAmount.text = currentArmor.ToString();
         flashCounter = flashLength;
         rend.material.SetColor("_Color", Color.red);
     }
@@ -58,5 +64,6 @@ public class PlayerHealthManager : MonoBehaviour
     void SetStats()
     {
         playerUI.healthAmount.text = currentHealth.ToString();
+        playerUI.armorAmount.text = currentArmor.ToString();
     }
 }

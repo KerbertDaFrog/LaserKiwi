@@ -7,4 +7,6 @@ using TMPro;
 public class PlayerUI : MonoBehaviour
 {
     public TextMeshProUGUI healthAmount;
+    public TextMeshProUGUI armorAmount;
+    public TextMeshProUGUI ammoAmount;
 }
