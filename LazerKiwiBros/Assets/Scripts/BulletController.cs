@@ -35,6 +35,6 @@ public class BulletController : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
             Destroy(gameObject);
-        }
+        }                         
     }
 }
