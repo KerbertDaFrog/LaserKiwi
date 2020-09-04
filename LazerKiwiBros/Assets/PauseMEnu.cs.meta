@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:LazerKiwiBros/Assets/PauseMEnu.cs.meta
 guid: 8d76a0879203bfd469680715da82d803
 MonoImporter:
+=======
+<<<<<<< Updated upstream
+guid: c21d332453ee88c4293800815ac0009c
+=======
+guid: 9bf5110a1bd7350459ec2e4a28f67da2
+>>>>>>> Stashed changes
+folderAsset: yes
+DefaultImporter:
+>>>>>>> master:LazerKiwiBros/Assets/Prefabs/Pickups.meta
   externalObjects: {}
   serializedVersion: 2
   defaultReferences: []

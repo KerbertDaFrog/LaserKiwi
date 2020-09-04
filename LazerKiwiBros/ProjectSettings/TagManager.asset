@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - FxTemporaire
+  - Speed
+  - Health
+  - Ammo
+  - EnemyGun
   layers:
   - Default
   - TransparentFX

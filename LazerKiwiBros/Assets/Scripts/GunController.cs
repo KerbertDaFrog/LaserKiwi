@@ -9,6 +9,10 @@ public class GunController : MonoBehaviour
     public BulletController bullet;
     public float bulletSpeed;
 
+    public int bulletAmount = 200;
+
+    public PlayerUI playerUI;
+
     public float timeBetweenShots;
     private float shotCounter;
 
@@ -17,25 +21,43 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(tag == "EnemyGun")
+        {
+            bulletAmount = 20000;
+        }
         
+        SetStats();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isFiring)
+        if (bulletAmount <= 0)
+        {
+            isFiring = false;
+            return;
+        }
+
+        if (isFiring)
         {
             shotCounter -= Time.deltaTime;
-            if(shotCounter <=0)
+            if (shotCounter <=0)
             {
                 shotCounter = timeBetweenShots;
                 BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
                 newBullet.speed = bulletSpeed;
+                bulletAmount -= 1;
+                playerUI.ammoAmount.text = bulletAmount.ToString();
             }
             else
             {
                 shotCounter = 0;
             }
         }
+    }
+
+    void SetStats()
+    {
+        playerUI.ammoAmount.text = bulletAmount.ToString();
     }
 }
