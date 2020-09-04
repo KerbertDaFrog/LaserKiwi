@@ -9547,7 +9547,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 9.404242e-38, z: 1.7579e-41, w: 1.7757e-41}
+  m_BoundingSphereOverride: {x: 5.381e-42, y: 2.3318e-41, z: 2.2e-44, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -12137,6 +12137,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2128884328}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &875614216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875614217}
+  m_Layer: 0
+  m_Name: PlayerSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &875614217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875614216}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000026822087}
+  m_LocalPosition: {x: 30.472786, y: -2.77, z: 16.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1688148348}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!4 &876007113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2501037407062828640, guid: 802a705e21c6abc4f937b2fdffc26407,
@@ -22931,6 +22961,7 @@ Transform:
   - {fileID: 1514768445}
   - {fileID: 590434043}
   - {fileID: 58168963}
+  - {fileID: 875614217}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29861,35 +29892,31 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: -7492478087902080014, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+    - target: {fileID: 1702186267092572878, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
         type: 3}
-      propertyPath: armorAmount
+      propertyPath: bullet
       value: 
-      objectReference: {fileID: 208426704}
-    - target: {fileID: -7492478087902080014, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+      objectReference: {fileID: -6246936687343894258, guid: a11c95ce1db426148b5277b79f92582f,
         type: 3}
-      propertyPath: healthAmount
-      value: 
-      objectReference: {fileID: 1232648826}
-    - target: {fileID: -7492478087902080014, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+    - target: {fileID: 1702186267092572878, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
         type: 3}
-      propertyPath: ammoAmount
-      value: 
-      objectReference: {fileID: 1996576252}
-    - target: {fileID: 3980156874685741808, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
-        type: 3}
-      propertyPath: currentHealth
-      value: 0
+      propertyPath: bulletAmount
+      value: 2000
       objectReference: {fileID: 0}
-    - target: {fileID: 3980156874685741808, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+    - target: {fileID: 1702186267092572878, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
         type: 3}
-      propertyPath: startingArmor
-      value: 50
+      propertyPath: timeBetweenShots
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3980156874685741808, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+    - target: {fileID: 1702186267092572878, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
         type: 3}
-      propertyPath: startingHealth
-      value: 50
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 582149062}
+    - target: {fileID: 4879727955758683665, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3128054356670702394, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
         type: 3}
@@ -29946,32 +29973,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1702186267092572878, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+    - target: {fileID: 3980156874685741808, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
         type: 3}
-      propertyPath: bullet
+      propertyPath: currentHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980156874685741808, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+        type: 3}
+      propertyPath: startingArmor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980156874685741808, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+        type: 3}
+      propertyPath: startingHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980156874685741808, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+        type: 3}
+      propertyPath: SpawnPoint
       value: 
-      objectReference: {fileID: -6246936687343894258, guid: a11c95ce1db426148b5277b79f92582f,
+      objectReference: {fileID: 875614217}
+    - target: {fileID: 3980156874685741808, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
         type: 3}
-    - target: {fileID: 1702186267092572878, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
-        type: 3}
-      propertyPath: bulletAmount
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702186267092572878, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
-        type: 3}
-      propertyPath: timeBetweenShots
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702186267092572878, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
-        type: 3}
-      propertyPath: playerUI
+      propertyPath: player
       value: 
-      objectReference: {fileID: 582149062}
-    - target: {fileID: 4879727955758683665, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+      objectReference: {fileID: 582149061}
+    - target: {fileID: -7492478087902080014, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: armorAmount
+      value: 
+      objectReference: {fileID: 208426704}
+    - target: {fileID: -7492478087902080014, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+        type: 3}
+      propertyPath: healthAmount
+      value: 
+      objectReference: {fileID: 1232648826}
+    - target: {fileID: -7492478087902080014, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb,
+        type: 3}
+      propertyPath: ammoAmount
+      value: 
+      objectReference: {fileID: 1996576252}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ab9fcd2e9d9ab54f9ad387a4a3430eb, type: 3}
 --- !u!1001 &1754085162458633611

@@ -73,7 +73,7 @@ public class PlayerHealthManager : MonoBehaviour
 
     IEnumerator PlayerDeath(float duration)
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
         yield return new WaitForSeconds(duration);
         Instantiate(player, SpawnPoint.position, SpawnPoint.rotation); 
     }
