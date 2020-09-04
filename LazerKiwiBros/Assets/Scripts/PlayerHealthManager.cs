@@ -18,6 +18,9 @@ public class PlayerHealthManager : MonoBehaviour
     private Renderer rend;
     private Color storedColor;
 
+    public GameObject player;
+    public Transform SpawnPoint;
+
     PlayerUI playerUI;
 
     // Start is called before the first frame update
@@ -40,7 +43,7 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            StartCoroutine(PlayerDeath(5));
         }
 
         if (flashCounter > 0)
@@ -66,5 +69,12 @@ public class PlayerHealthManager : MonoBehaviour
     {
         playerUI.healthAmount.text = currentHealth.ToString();
         playerUI.armorAmount.text = currentArmor.ToString();
+    }
+
+    IEnumerator PlayerDeath(float duration)
+    {
+        gameObject.SetActive(false);
+        yield return new WaitForSeconds(duration);
+        Instantiate(player, SpawnPoint.position, SpawnPoint.rotation); 
     }
 }

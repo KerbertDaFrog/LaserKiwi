@@ -74,7 +74,6 @@ public class Powerups : MonoBehaviour
 
     IEnumerator SpeedTime (int duration)
     {
-        duration = 10;
 
         Debug.Log("Power Up Activated");
 
