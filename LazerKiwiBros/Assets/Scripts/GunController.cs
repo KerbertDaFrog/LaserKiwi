@@ -11,18 +11,21 @@ public class GunController : MonoBehaviour
 
     public int bulletAmount = 200;
 
+    public PlayerUI playerUI;
+
     public float timeBetweenShots;
     private float shotCounter;
 
     public Transform firePoint;
 
-    PlayerUI playerUI;
-
     // Start is called before the first frame update
     void Start()
     {
-        playerUI = GetComponent<PlayerUI>();
-
+        if(tag == "EnemyGun")
+        {
+            bulletAmount = 20000;
+        }
+        
         SetStats();
     }
 

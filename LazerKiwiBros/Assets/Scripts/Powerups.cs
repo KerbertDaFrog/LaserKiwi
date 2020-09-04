@@ -24,6 +24,7 @@ public class Powerups : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Pickup(other);
+            timer = 10;
         }
     }
 
@@ -36,27 +37,31 @@ public class Powerups : MonoBehaviour
         
         if(gameObject.tag == "Speed")
         {
-            StartCoroutine("SpeedTime");
+            StartCoroutine(SpeedTime(10));
         }
 
         if(gameObject.tag == "Health")
         {
             player.GetComponent<PlayerHealthManager>().currentHealth += HealthAdd;
+            Debug.Log("Picked up Health");
         }
 
         if(gameObject.tag == "Armor")
         {
             player.GetComponent<PlayerHealthManager>().currentArmor += ArmorAdd;
+            Debug.Log("Picked up Armor");
         }
 
         if (gameObject.tag == "Invincibility")
         {
             player.GetComponent<PlayerHealthManager>().enabled = false;
+            Debug.Log("Picked up Invincibility");
         }
 
         if (gameObject.tag == "Ammo")
         {
-            player.GetComponent<GunController>().bulletAmount += AmmoAdd;
+            player.GetComponentInChildren<GunController>().bulletAmount += AmmoAdd;
+            Debug.Log("Picked up Ammo");
         }
 
         Destroy(gameObject);
@@ -64,15 +69,17 @@ public class Powerups : MonoBehaviour
 
     void Speed(Collider player)
     {
-        player.GetComponent<PlayerMovement>().moveSpeed *= multiplier;
+       player.GetComponent<PlayerMovement>().moveSpeed *= multiplier;
     }
 
-    IEnumerator SpeedTime (float duration)
+    IEnumerator SpeedTime (int duration)
     {
+        duration = 10;
+
         Debug.Log("Power Up Activated");
-        powerupActive = true;
-        yield return new WaitForSeconds(duration);
-        powerupActive = false;
+
+        yield return new WaitForSeconds(timer);
+
         Debug.Log("Power Up Deactivated");
     }
 }

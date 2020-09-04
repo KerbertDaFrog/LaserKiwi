@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1790680331255734546}
   - component: {fileID: 8896697296008265990}
   - component: {fileID: -5564147691893345811}
+  - component: {fileID: -1830089884198047365}
   m_Layer: 0
   m_Name: Invincibility
   m_TagString: Untagged
@@ -62,6 +63,25 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &-1830089884198047365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351416577786385153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6944f4bea35af494ca41cdf2a3c07daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupEffect: {fileID: 0}
+  HealthAdd: 25
+  ArmorAdd: 25
+  AmmoAdd: 50
+  multiplier: 10
+  timer: 30
+  powerupActive: 0
 --- !u!1 &9199924858386928315
 GameObject:
   m_ObjectHideFlags: 0

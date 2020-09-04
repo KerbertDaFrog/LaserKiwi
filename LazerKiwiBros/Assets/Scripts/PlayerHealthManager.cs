@@ -10,6 +10,7 @@ public class PlayerHealthManager : MonoBehaviour
 
     public int startingArmor;
     public int currentArmor;
+    public int armorDamage = 5;
 
     public float flashLength;
     private float flashCounter;
@@ -58,7 +59,7 @@ public class PlayerHealthManager : MonoBehaviour
         playerUI.healthAmount.text = currentHealth.ToString();
         playerUI.armorAmount.text = currentArmor.ToString();
         flashCounter = flashLength;
-        rend.material.SetColor("_Color", Color.red);
+        rend.material.SetColor("_Color", Color.red);        
     }
 
     void SetStats()

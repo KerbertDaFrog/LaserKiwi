@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 469526280974924803}
   - component: {fileID: 6893673207530883886}
   - component: {fileID: 7336377851125615926}
+  - component: {fileID: 1602785622581697086}
   m_Layer: 0
   m_Name: Health
   m_TagString: Health
@@ -62,6 +63,25 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1602785622581697086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521619688812350992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6944f4bea35af494ca41cdf2a3c07daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupEffect: {fileID: 0}
+  HealthAdd: 25
+  ArmorAdd: 25
+  AmmoAdd: 50
+  multiplier: 10
+  timer: 30
+  powerupActive: 0
 --- !u!1 &9161041178758624560
 GameObject:
   m_ObjectHideFlags: 0
