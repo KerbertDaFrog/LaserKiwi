@@ -9,7 +9,7 @@ public class PlayerRespawner : MonoBehaviour
 
     void Update()
     {
-        if (GetComponent<PlayerHealthManager>().currentHealth <= 0)
+        if 
         {          
             StartCoroutine(PlayerDeath(5));
         }
