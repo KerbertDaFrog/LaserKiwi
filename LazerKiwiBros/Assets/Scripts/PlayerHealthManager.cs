@@ -43,7 +43,7 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            StartCoroutine(PlayerDeath(5));
+            Destroy(gameObject);
         }
 
         if (flashCounter > 0)
@@ -69,12 +69,5 @@ public class PlayerHealthManager : MonoBehaviour
     {
         playerUI.healthAmount.text = currentHealth.ToString();
         playerUI.armorAmount.text = currentArmor.ToString();
-    }
-
-    IEnumerator PlayerDeath(float duration)
-    {
-        Destroy(gameObject);
-        yield return new WaitForSeconds(duration);
-        Instantiate(player, SpawnPoint.position, SpawnPoint.rotation); 
     }
 }

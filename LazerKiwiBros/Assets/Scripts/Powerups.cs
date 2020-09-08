@@ -13,8 +13,6 @@ public class Powerups : MonoBehaviour
 
     public int AmmoAdd = 50;
 
-    public int multiplier = 10;
-
     public float timer = 30f;
 
     public bool powerupActive = false;
@@ -36,7 +34,7 @@ public class Powerups : MonoBehaviour
         }
         
         if(gameObject.tag == "Speed")
-        {
+        {         
             StartCoroutine(SpeedTime(10));
         }
 
@@ -67,18 +65,12 @@ public class Powerups : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Speed(Collider player)
-    {
-       player.GetComponent<PlayerMovement>().moveSpeed *= multiplier;
-    }
-
     IEnumerator SpeedTime (int duration)
     {
-
         Debug.Log("Power Up Activated");
-
+        GetComponent<SpeedEffect>().enabled = true;
         yield return new WaitForSeconds(timer);
-
+        GetComponent<SpeedEffect>().enabled = false;
         Debug.Log("Power Up Deactivated");
     }
 }
